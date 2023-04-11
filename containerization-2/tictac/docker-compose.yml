@@ -1,8 +1,9 @@
 version: "3.9"
 services:
   frontend:
-    build: ./
+    build: .
     volumes:
+      - /app/node_modules
       - .:/app
   nginx:
     build: ./nginx
