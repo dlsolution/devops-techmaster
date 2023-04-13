@@ -2,12 +2,15 @@ version: "3.9"
 services:
   frontend:
     build: .
-    volumes:
-      - /app/node_modules
-      - .:/app
   nginx:
     build: ./nginx
-    depends_on:
-      - frontend
+    restart: always
     ports:
       - "3000:80"
+    volumes:
+      - /Users/er_macbook_228/devops-techmaster/containerization-2/tictac/public:/var/www/html
+      - nginxdata:/var/www/public_nginx
+    depends_on:
+      - frontend
+volumes:
+  nginxdata:
