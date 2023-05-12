@@ -61,7 +61,7 @@ $ docker push duylinh158/my-website:1.0.0
 #### Bước 5: Tạo deployment với image duylinh158/my-website:1.0.0 và replicas=2
 
 ```bash
-$ kubectl create deployment webapp --image duylinh158/my-website:latest --replicas=2 --dry-run=client -o yaml > templates/webapp-deployment.yaml  
+$ kubectl create deployment webapp --image duylinh158/my-website:1.0.0 --replicas=2 --dry-run=client -o yaml > templates/webapp-deployment.yaml  
 
 $ kubectl create -f templates/webapp-deployment.yaml  
 ```
@@ -69,7 +69,9 @@ $ kubectl create -f templates/webapp-deployment.yaml
 #### Bước 6: Tạo nodeport service
 
 ```bash
-$ kubectl create service nodeport webapp --tcp=80:80 --node-port=32002 --dry-run=client -o yaml > templates/webapp-service.yaml  
+$ kubectl create service nodeport webapp --tcp=80:80 --node-port=32002 --dry-run=client -o yaml > templates/webapp-service.yaml
+
+$ kubectl create -f templates/webapp-service.yaml
 ```
 
 #### Truy cập tới ứng dụng thông qua service 

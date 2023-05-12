@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  default.conf: |-
+    server {
+      listen 80;
+      server_name localhost;
+
+      location /web1 {
+        proxy_pass http://webapp:32002/;
+      }
+
+      location /web2 {
+        proxy_pass http://webapp2:32003/;
+      }
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: nginx-proxy-config
+  namespace: lab

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webapp2
+  name: webapp2
+  namespace: lab
+spec:
+  ports:
+  - name: 32003-80
+    nodePort: 32003
+    port: 32003
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webapp2
+  type: NodePort
+status:
+  loadBalancer: {}

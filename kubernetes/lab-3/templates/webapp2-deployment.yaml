@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: webapp2
+  name: webapp2
+  namespace: lab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapp2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: webapp2
+    spec:
+      containers:
+      - image: duylinh158/my-website2:1.0.0
+        name: my-website2
+        resources: {}
+status: {}
